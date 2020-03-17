@@ -1,7 +1,11 @@
 //contains all the route handlings
 const express = require('express');
 const router = express.Router();
-const { selectall, selectparams, insertparams }  = require('./queries.js');
+const { selectall, selectparams, insertparams, signin, signup } = require('./queries.js');
+
+router.post('/api/signup', (req, res) => { signup(req, res); });
+
+router.post('/api/signin', (req, res) => { signin(req, res); });
 
 router.get('/api/notes/selectallnotes', (req, res) => { selectall(req, res); });
 
